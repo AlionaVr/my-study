@@ -31,7 +31,7 @@ public class Main {
         Scanner myScanner = new Scanner(System.in);
         number = myScanner.nextInt();
         Stream.iterate(1, i -> i < 15, i -> i + 1).forEach(i -> System.out.println());
-        System.out.println(" ИГРОК №2, попробуйте угадать число. Количество попыток: " + (3));
+        System.out.println(" Player №2, попробуйте угадать число. Количество попыток: " + (3));
         for (counter = 1; counter <= 3; counter++) {
             attempt = myScanner.nextInt();
             if ((attempt == number)) {
