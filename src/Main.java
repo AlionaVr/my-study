@@ -15,7 +15,7 @@ public class Main {
                 System.out.print("liters = " + liters);*/
 
         // *** задача поиска простых чисел *** //
-      /* int i,j;
+       int i,j;
        boolean number;
        System.out.println("простые числа:\n");
        for (i=2; i<=100; i++) {
@@ -23,26 +23,7 @@ public class Main {
            for (j=2; j<=i/j; j++) {
                if (i%j==0) number = false;}
        if (number==true) System.out.println(i);
-       }*/
-
-        //*** Игра угадай букву ***//
-        int number, attempt, counter;
-        System.out.println(" Player №1, загадайте и введите число от 1 до 10");
-        Scanner myScanner = new Scanner(System.in);
-        number = myScanner.nextInt();
-        Stream.iterate(1, i -> i < 15, i -> i + 1).forEach(i -> System.out.println());
-        System.out.println(" Player №2, попробуйте угадать число. Количество попыток: " + (3));
-        for (counter = 1; counter <= 3; counter++) {
-            attempt = myScanner.nextInt();
-            if ((attempt == number)) {
-                System.out.println("*** ПОЗДРАВЛЯЕМ! ВЫ УГАДАЛИ ***");
-                break;
-            }
-            else if (counter != 3)
-                System.out.println("!!!  НЕТ, НЕ УГАДАЛИ !!! \n Попробуйте снова.Количество оставшихся попыток:" + (3 - counter));
-            else System.out.println("!!!  Ну и балбес, НЕ УГАДАЛИ !!!");
-        }
-
+       }
     }
 
 }
