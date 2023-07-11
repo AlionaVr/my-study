@@ -27,7 +27,7 @@ public class Main {
 
         //*** Игра угадай букву ***//
         int number, attempt, counter;
-        System.out.println(" ИГРОК №1, загадайте и введите число от 1 до 10");
+        System.out.println(" Player №1, загадайте и введите число от 1 до 10");
         Scanner myScanner = new Scanner(System.in);
         number = myScanner.nextInt();
         Stream.iterate(1, i -> i < 15, i -> i + 1).forEach(i -> System.out.println());
