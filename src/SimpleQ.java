@@ -1,63 +1,63 @@
+import java.sql.SQLOutput;
+
 public class SimpleQ {
-    public static void main(String args[]) {
-        Queue bigQ = new Queue(100);
-        Queue smallQ = new Queue(4);
-        char ch;
+    public static void main(String[] args) {
         int i;
-        // Помещение и Извлечение буквенных символов в очередь bigQ
-        for (i = 0; i < 26; i++)
-            bigQ.put((char) ('A' + i));
-        System.out.print("Содержимое очереди bigQ: ");
+        char ch;
+        Queue alphabet = new Queue(40);
+        Queue smallQ = new Queue(4);
+        // вводит в массив алфавит//
         for (i = 0; i < 26; i++) {
-            ch = bigQ.get();
-            if (ch != (char) 0) System.out.print(ch);
+            alphabet.put((char) ('A' + i));
+        }
+        System.out.println("содержимое очереди alphabet:");
+        for (i = 0; i < 26; i++) {
+            ch = alphabet.get();
+            System.out.print(ch);
+            if (ch == (char) 0) break;
         }
         System.out.println();
 
-// Использование очереди smallQ для генерации ошибок
+        // вводит в массив small,//
         for (i = 0; i < 5; i++) {
-            System.out.print("Попытка сохранения " + (char) ('Z' - i));
+            System.out.print("Вводимая буква:" + (char) ('Z' - i));
             smallQ.put((char) ('Z' - i));
             System.out.println();
         }
-        System.out.println();
-        System.out.print("Содержимое очереди smallQ: ");
+        System.out.print("Содержимое smallQ:\n");
         for (i = 0; i < 5; i++) {
             ch = smallQ.get();
-            if (ch != (char) 0) System.out.print(ch);
+            System.out.print(ch);
+            if (ch == (char) 0) break;
         }
-
     }
 }
 
 class Queue {
+    int putPosition, getPosition;
     char queue[];
-    int positionToPut, positionToGet;
 
     Queue(int size) {
         queue = new char[size];
-        positionToPut = positionToGet = 0;
+        putPosition = getPosition = 0;
     }
 
-    // Помещение символа в очередь
     void put(char ch) {
-        if (positionToPut == queue.length) {
-            System.out.println(" - Очередь заполнена");
+        if (putPosition == queue.length) {
+            System.out.println("-Очередь заполнена");
             return;
         }
-        queue[positionToPut] = ch;
-        positionToPut = positionToPut + 1;
+        queue[putPosition] = ch;
+        putPosition++;
     }
 
-    // Извлечение символа из очереди
     char get() {
-        if (positionToGet == positionToPut) {
-            System.out.println(" - Очередь пуста");
+        if (getPosition == putPosition) {
+            System.out.println("-Очередь пуста");
             return (char) 0;
         }
-        char el = queue[positionToGet];
-        ++positionToGet;
+        char el = queue[getPosition];
+        getPosition++;
         return el;
-
     }
 }
