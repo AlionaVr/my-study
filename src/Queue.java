@@ -58,5 +58,5 @@ class SimpleQ {
             ch = smallQ.get();
             if (ch != (char) 0) System.out.print(ch);
         }
-    }
+
 }
