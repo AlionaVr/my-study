@@ -20,8 +20,8 @@ public class Bubble_Sort {
                     list[k + 1] = list[k];
                     list[k] = t;
                 }
+                System.out.println(Arrays.toString(list));
             }
-            System.out.println(Arrays.toString(list));
         }
         System.out.println("Отсортированный список:" + Arrays.toString(list));
     }
