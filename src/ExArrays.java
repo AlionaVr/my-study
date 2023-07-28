@@ -1,14 +1,23 @@
+import java.util.Arrays;
+
 public class ExArrays {
     public static void main (String [] arg){
 
         //Задача №1. Вычисляет среднее арифметическое массива и сортирует массив//
-        double num [] = {1.2,2.5,6.7,5.6,7.9,8,8.4,6.7,8.8,6.4};
+        double nums [] = {1.2,2.5,6.7,5.6,7.9,8,8.4,6.7,8.8,6.4};
         double sum=0;
-        for (int i=0; i<num.length; i++){
-            sum+=num[i];
+        for (int i=1; i<nums.length+1; i++){
+            sum+=nums[i-1];
+            for (int n = 0; n<(nums.length-(i)); n++) {
+                if (nums[n] >  (nums[n+1])) {
+                    double t = nums[n];
+                    nums[n]= (nums[n+1]);
+                    (nums[n+1]) = t;
+                }
+            }
+            System.out.println(Arrays.toString(nums));
         }
-        System.out.println ("Среднее арифметическое массива:" + sum/ num.length);
-
-
+        System.out.println("Отсортированный список:" + Arrays.toString(nums));
+        System.out.println ("Среднее арифметическое массива:" + sum/ nums.length);
     }
 }
