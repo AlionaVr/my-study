@@ -1,35 +1,25 @@
-class Block {
-    int a, b, c;
-    int volume;
+// Инициализация одного объекта посредством другого
+class Summation {
+    int sum;
 
-    Block(int i, int j, int k) {
-        a = i;
-        b = j;
-        c = k;
-        volume = a * b * c;
+    // Создание объекта на основе целочисленного значения
+    Summation(int num) {
+        sum = 0;
+        for (int i = 1; i <= num; i++)
+            sum += i;
     }
 
-    boolean sameBlock(Block ob) {
-        if ((ob.a == a) & (ob.b == b) & (ob.c == c)) return true;
-        else return false;
-    }
-
-    boolean sameVolume(Block ob) {
-        if (ob.volume == volume) return true;
-        else return false;
+    // Создание одного объекта на основе другого
+    Summation(Summation ob) {
+        sum = ob.sum;
     }
 }
-    class Ex1 {
+    class SumDemo {
         public static void main(String args[]) {
-            Block ob1 = new Block(10, 2, 5);
-            Block ob2 = new Block(10, 2, 5);
-            Block ob3 = new Block(4, 5, 5);
-            System.out.println("ob1 имеет те же размеры, что и оЬ2:" +
-                    ob1.sameBlock(ob2));
-            System.out.println("ob1 имеет те же размеры, что и оЬЗ: " +
-                    ob1.sameBlock(ob3));
-            System.out.println("ob1 имеет тот же объем, что и оЬЗ: " +
-                    ob1.sameVolume(ob3));
+            Summation s1 = new Summation(5);
+            Summation s2 = new Summation(s1);
+            System.out.println("si.sum: " + s1.sum);
+            System.out.println("s2.sum: " + s2.sum);
         }
     }
 
