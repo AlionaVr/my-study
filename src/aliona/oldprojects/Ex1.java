@@ -1,3 +1,5 @@
+package aliona.oldprojects;
+
 // Инициализация одного объекта посредством другого
 class Summation {
     int sum;

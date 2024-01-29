@@ -1,3 +1,5 @@
+package aliona.oldprojects;
+
 class Bw {
     String str;
 

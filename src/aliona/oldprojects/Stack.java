@@ -1,3 +1,5 @@
+package aliona.oldprojects;
+
 class Stack {
     private char stck[];
     private int top;
@@ -40,7 +42,7 @@ class Stack {
             return stck[top];
         }
 }
-// Демонстрация использования класса Stack
+// Демонстрация использования класса aliona.oldprojects.Stack
 class SDemo {
     public static void main(String args[]) {
         Stack stk1 = new Stack(10);

@@ -1,3 +1,5 @@
+package aliona.oldprojects;
+
 class Fctrl {
     int factR (int n) {
         int result;

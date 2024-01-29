@@ -1,3 +1,5 @@
+package aliona.oldprojects;
+
 class  Summat {
     int sum (int...n){
         int result=0;

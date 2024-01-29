@@ -1,3 +1,5 @@
+package aliona.oldprojects;
+
 import java.util.Arrays;
 
 public class ExArrays {
