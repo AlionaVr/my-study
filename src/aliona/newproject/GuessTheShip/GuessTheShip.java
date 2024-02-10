@@ -1,47 +1,51 @@
 package aliona.newproject.GuessTheShip;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class GuessTheShip {
-    private GameHelper helper = new GameHelper();
-    private ArrayList <Ships> shiplist = new ArrayList<Ships>();
+    private final GameHelper helper = new GameHelper();
+    private final ArrayList<Ship> shipList = new ArrayList<>();
     private int numOfGuesses = 0;
-    private void setUpGame () {
-        Ships one = new Ships();
-        one.setName ("Titanic");
-        Ships two = new Ships();
-        two.setName ("Victoria");
-        Ships three = new Ships();
-        three.setName ("Atlanta");
-        shiplist.add (one);
-        shiplist.add (two);
-        shiplist.add (three);
-        System.out.println( "аша цель - потопить три коробля: titanic, Victoria, Atlanta.\n " +
-                "Попыйтесь потопить их за минимальное еколичество попыток");
-        for (Ships shipInSea: shiplist) {
-            ArrayList <String> newLocation = helper.placeDotCom(3);
+
+    private void setUpGame() {
+        shipList.addAll(
+                List.of(
+                        new Ship("Titanic"),
+                        new Ship("Victoria"),
+                        new Ship("Atlanta")
+                )
+        );
+
+        System.out.println("Ваша цель - потопить три коробля: Titanic, Victoria, Atlanta.\n " +
+                "Попыйтесь потопить их за минимальное количество попыток");
+        for (Ship shipInSea : shipList) {
+            ArrayList<String> newLocation = helper.placeDotCom(3);
             shipInSea.setLocationCells(newLocation);
+            System.out.println("Location of ship: " + shipInSea.getName() + " | Locations of the ship: " + shipInSea.getLocationCells());
         }
 
 
-
     }
-    private void startPlaying () {
-        while (!shiplist.isEmpty()) {
+
+    private void startPlaying() {
+        while (!shipList.isEmpty()) {
             String userGuess = helper.getUserInput("сделайте ход");
-            checkGuess (userGuess);
+            checkGuess(userGuess);
         }
-        System.out.println( "Все корабли ушли ко дну. количество ваших попыток -" + numOfGuesses);
+        System.out.println("Все корабли ушли ко дну. количество ваших попыток -" + numOfGuesses);
     }
-    private void checkGuess (String userGuess) {
+
+    private void checkGuess(String userGuess) {
         numOfGuesses++;
         String result = " Мимо";
-        for (Ships shipUnderAttack: shiplist) {
+        for (Ship shipUnderAttack : shipList) {
             result = shipUnderAttack.checker(userGuess);
             if (result.equals("Попал")) {
                 break;
             }
             if (result.equals("Потопил")) {
-                shiplist.remove(shipUnderAttack);
+                shipList.remove(shipUnderAttack);
                 break;
             }
         }
