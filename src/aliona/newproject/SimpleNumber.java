@@ -1,25 +1,29 @@
 package aliona.newproject;
 
-class SimpleNumber {
-    int[] locationCells;
-    int numOfHits = 0;
+import java.util.ArrayList;
 
-    public void setLocationCells(int[] locs) {
-        locationCells = locs;
+class SimpleNumber {
+    private static ArrayList <String> locationCells;
+
+
+    public static void setLocationCells(ArrayList<String> locs) {
+
+         locationCells = locs;
     }
 
     public String checker(String stringGuess) {
         int guess = Integer.parseInt(stringGuess);
         String result = "Мимо";
-        for (int cell : locationCells) {
-            if (guess == cell) {
-                result = "Попал";
-                numOfHits++;
-                break;
+        int index = locationCells.indexOf(stringGuess);
+        if (index >= 0) {
+            locationCells.remove(index);
+            if (locationCells.isEmpty()) {
+                result = "Потопил";
             }
-        }
-        if (numOfHits == locationCells.length) {
-            result = "Потопил";
+            else {
+                result = "Попал";
+
+            }
         }
         System.out.println(result);
         return result;
