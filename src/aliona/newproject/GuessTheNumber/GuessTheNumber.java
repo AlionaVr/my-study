@@ -1,4 +1,6 @@
-package aliona.newproject;
+package aliona.newproject.GuessTheNumber;
+
+
 
 import java.util.ArrayList;
 

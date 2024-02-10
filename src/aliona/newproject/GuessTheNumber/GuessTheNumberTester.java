@@ -1,4 +1,4 @@
-package aliona.newproject;
+package aliona.newproject.GuessTheNumber;
 
 /*
 public class GuessTheNumberTester  {
