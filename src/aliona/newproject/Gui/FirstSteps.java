@@ -1,22 +1,30 @@
 package aliona.newproject.Gui;
 
 import javax.swing.*;
+import java.awt.*;
+
 public class FirstSteps {
+    JFrame frame;
     JButton button;
     public static void main(String[] args) {
         FirstSteps step = new FirstSteps();
         step.go();
     }
     public void go () {
-        JFrame frame = new JFrame();
-        button = new JButton("click me");
-        MyButtonActionListener myListener = new MyButtonActionListener(button);
-        button.addActionListener(myListener);
-        button.setSize(10, 10);
+        frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(200, 200);
+        frame.setSize(300, 300);
         frame.setVisible(true);
-        frame.getContentPane().add(button);
+        MyDrawPanel drawPanel = new MyDrawPanel();
+        button = new JButton("click me to change colors");
+        MyButtonActionListener myListener = new MyButtonActionListener(button,frame,drawPanel);
+        button.addActionListener(myListener);
+
+
+
+        frame.getContentPane().add(BorderLayout.SOUTH, button);
+        frame.getContentPane().add(BorderLayout.CENTER, drawPanel);
+
     }
 }
 
